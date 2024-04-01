@@ -25,6 +25,8 @@ DOCS =									\
 		beginners_guide						\
 		configure						\
 		quic							\
+		community						\
+		governance						\
 
 FAQ =									\
 		welcome_nginx_facebook					\

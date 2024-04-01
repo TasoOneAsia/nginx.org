@@ -8,8 +8,7 @@
 <article name="nginx: support"
          link="/en/support.html"
          lang="en"
-         rev="10">
-
+         rev="11">
 
 <section name="Commercial Support">
 
@@ -17,6 +16,30 @@
 We offer
 <link url="https://www.nginx.com/support/">commercial support</link>
 for nginx and our commercial products.
+</para>
+
+</section>
+
+
+<section name="Community and Governance">
+
+<para>
+NGINX is committed to supporting the global community of developers that
+helped it grow to the scale it is today and has pledged to be transparent and
+fair in the governance of all NGINX open source projects.
+
+<list type="bullet">
+
+<listitem>
+<link url="/en/docs/community.html">Community</link>
+</listitem>
+
+<listitem>
+<link url="/en/docs/governance.html">Governance</link>
+</listitem>
+
+</list>
+
 </para>
 
 </section>

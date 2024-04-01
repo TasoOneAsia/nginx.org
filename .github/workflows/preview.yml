@@ -1,0 +1,40 @@
+name: Deploy Preview to GH Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["preview"]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy-preview:
+    name: "Deploy to GH Pages Preview Env"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Install Deps
+        run: sudo apt-get install libxml2-utils xsltproc netpbm
+      - name: Build Bundle
+        run: |
+          make all images gzip
+          mkdir ./dist
+          cp -r ./binary/* ./dist
+          cp -r ./gzip/* ./dist
+      - name: Configure GH Pages
+        uses: actions/configure-pages@v5
+      - name: Upload bundle
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
